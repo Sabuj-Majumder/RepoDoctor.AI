@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Scan {
+  id          String   @id @default(uuid())
+  repoUrl     String
+  owner       String
+  repo        String
+  overallScore Int
+  readmeScore Int
+  structureScore Int
+  activityScore Int
+  maintainabilityScore Int
+  bestPracticesScore Int
+  report      String   // JSON stringified report
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([createdAt])
+  @@index([overallScore])
+}

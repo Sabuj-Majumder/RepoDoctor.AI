@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://repodoctor.ai/sitemap.xml
